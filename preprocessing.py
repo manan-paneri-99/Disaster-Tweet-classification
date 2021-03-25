@@ -30,3 +30,9 @@ def get_batches(train_size=0.8, path='./Data'):
     df = fetch_data_as_df(path)
     train_df, valid_df = train_test_split(df, random_state=43, train_size=train_size)
     return train_df, valid_df
+
+
+def get_test_df(path='./Data'):
+    test_df = pd.read_csv(path + '/test.csv', low_memory=False)
+
+    return test_df
