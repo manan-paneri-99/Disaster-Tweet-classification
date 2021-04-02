@@ -4,8 +4,9 @@ import matplotlib.pyplot as plt
 from train import *
 
 
-def predict(path='./Data', saved_path='./saved_models/', index=2, display_performance=True):
+def predict(path='./Data', saved_path='./saved_models/', index=0, display_performance=True):
     test_df = get_test_df(path)
+    # print("data_loaded")
 
     classifier_model, histories = train()
 

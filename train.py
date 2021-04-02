@@ -4,7 +4,7 @@ from model import *
 from preprocessing import *
 
 
-def train_and_evaluate_model(index=2):
+def train_and_evaluate_model(index=0):
     preprocessor_url, module_url = get_model_type(index)
 
     text_input = tf.keras.Input(shape=(), dtype=tf.string, name='text')
@@ -23,7 +23,7 @@ def train_and_evaluate_model(index=2):
     return tf.keras.Model(text_input, net)
 
 
-def train(train_size=0.8, n_epochs=5, lr=3e-5, index=2, save_path='./saved_models/'):
+def train(train_size=0.8, n_epochs=5, lr=3e-5, index=0, save_path='./saved_models/'):
     loss, epochs, metrics, optimizer = get_model_parts(n_epochs=n_epochs, lr=lr)
 
     train_df, valid_df = get_batches(train_size=train_size)
